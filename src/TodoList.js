@@ -4,7 +4,7 @@ class TodoList extends Component{
     super(props);
     this.state={
       inputValue:'初始值',
-      list:[]
+      list:['item1','item2']
     }
   }
   handleInputChange(e){
@@ -12,17 +12,28 @@ class TodoList extends Component{
       inputValue:e.target.value
     })
   }
+  handleKeyUp(e){
+    if(e.keyCode===13){
+      const list=[...this.state.list,this.state.inputValue];
+      this.setState({
+        list:list,
+        inputValue:'',
+      })
+    }
+ 
+  }
   render(){
     return(
       <Fragment>
         <input  
           value={this.state.inputValue} 
           onChange={this.handleInputChange.bind(this)}
+          onKeyUp={this.handleKeyUp.bind(this)}
           />
         <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
+          {this.state.list.map((item,idx)=>{
+            return <li key={idx}>{item}</li>
+          })}
         </ul>
       </Fragment> 
     )
