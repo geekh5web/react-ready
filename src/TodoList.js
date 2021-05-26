@@ -7,6 +7,7 @@ class TodoList extends Component{
     super(props);
     this.handleChange=this.handleChange.bind(this);
     this.handleKeyUp=this.handleKeyUp.bind(this);
+    this.handleItemClick=this.handleItemClick.bind(this);//固定this指向，需要传递给子组件
     this.state={
       inputValue:'初始值',
       list:['1','2','3','4','5','6','7']
@@ -27,7 +28,7 @@ class TodoList extends Component{
       })
     }
   }
-  handleClick(idx){
+  handleItemClick(idx){
     const list=[...this.state.list];
     list.splice(idx,1);
     this.setState({
@@ -37,7 +38,7 @@ class TodoList extends Component{
   }
   getListItem(){
     return this.state.list.map((item,idx)=>{
-      return <TodoItem content={item} key={idx}/>
+      return <TodoItem content={item} key={idx} index={idx} deleteFunction={this.handleItemClick}/>
     })
   }
   render(){
