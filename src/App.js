@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import TodoList from './TodoList'
+import Counter from './Counter'
 
 class App extends Component{
 /*   constructor(props){
@@ -8,7 +8,7 @@ class App extends Component{
   render(){
     return(
       <Fragment>
-        <TodoList></TodoList>
+        <Counter></Counter>
       </Fragment>
     )
   }
