@@ -17,8 +17,8 @@ class Counter extends Component{
     render(){
         console.log('render');
         //当组件初次创建的时候，render函数会被执行一次
-        //当state数据发生变化的时候，render函数会被重新执行
-        //当props数据发生变更的时候，render函数会被重新执行
+        //当state数据发生变化的时候，这个组件的render函数会被重新执行
+        //当props数据发生变更的时候，这个组件的render函数会被重新执行
         return(
             <Fragment>
                 <button onClick={this.handleBtnClick}>增加</button>
